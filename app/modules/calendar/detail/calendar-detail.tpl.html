@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12">
+
+        <nav>
+            <ul class="pager">
+                <li><a ng-href="#/calendar}">Back</a></li>
+            </ul>
+        </nav>
+
+        <img class="img-responsive"
+             ng-src="{{calendarDetail.event.pictureurl}}" alt="{{calendarDetail.event.title}}">
+
+
+        <h3>{{calendarDetail.event.title}}</h3>
+
+        <span class="glyphicon glyphicon-time main-color"></span>
+        <span class="event-heading">DATE & TIME</span>
+
+        <!-- FIXME: when rest endpoint provide proper dates -->
+
+        <p>{{calendarDetail.event.eventDate | date:'dd.MM.yyyy'}}</p>
+
+        <span class="glyphicon glyphicon-map-marker main-color"></span>
+        <span class="event-heading">LOCATION</span>
+
+        <!-- FIXME: when rest endpoint provide location -->
+
+        <p>{{calendarDetail.event.location}}</p>
+
+        <span class="glyphicon glyphicon-user main-color"></span>
+        <span class="event-heading">ORGANISER</span>
+        <p>{{calendarDetail.event.organiser}}</p>
+
+        <span class="glyphicon glyphicon-piggy-bank main-color"></span>
+        <span class="event-heading">BOOKABLE HOURS</span>
+        <p>{{calendarDetail.event.bookablehours}}h</p>
+
+        <span class="glyphicon glyphicon-info-sign main-color"></span>
+        <span class="event-heading">DESCRIPTION</span>
+        <p>{{calendarDetail.event.description}}</p>
+
+    </div>
+</div>

@@ -1,0 +1,71 @@
+body {
+    font-family: 'Source Sans Pro', calibri, sans-serif;
+    padding-top: 80px;
+}
+
+/*~~~~~~~~~~~~   COLOR   ~~~~~~~~~~~~~~~~~~*/
+
+.main-color {
+    color: #406Ab3;
+}
+
+/*~~~~~~~~~~~~   TYPOGRAPHY   ~~~~~~~~~~~~~~~~~~*/
+
+h3 {
+    font-size: 16px;
+    color: #406Ab3;
+}
+
+.event-heading {
+    font-size: 13px;
+    color: #6c6c6c;
+}
+
+/*~~~~~~~~~~~~   BUTTONS   ~~~~~~~~~~~~~~~~~~*/
+
+.box-link {
+    background-color: #406Ab3;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 100;
+    display: block;
+    color: #fff;
+}
+
+.box-link:hover {
+    text-decoration: none;
+    color: #fff;
+}
+
+/*~~~~~~~~~~~~   OVERWRITE BOOTSTRAP STYLES   ~~~~~~~~~~~~~~~~~~*/
+
+.navbar .glyphicon {
+    top: 2px;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #fff;
+    background-color: #406Ab3;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #406Ab3;
+}
+
+.pager {
+    margin: 0px 0px 10px 0px;
+    text-align: left;
+}
+
+/*~~~~~~~~~~~~   SMALL DEVICES - SMALLER THAN 768px  ~~~~~~~~~~~~~~~~~~*/
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 60px;
+    }
+}

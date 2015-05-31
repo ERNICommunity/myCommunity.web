@@ -1,0 +1,16 @@
+<div class="row search-results">
+    <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12"
+         ng-repeat="event in calendar.events">
+        <a class="thumbnail" ng-href="#/calendar/{{event.id}}">
+            <img ng-src="{{event.pictureurl}}" alt="{{event.title}}">
+
+            <div class="caption">
+                <h3>{{event.title}}</h3>
+
+                <!-- FIXME: when rest endpoint provide proper dates -->
+                <span class="glyphicon glyphicon-calendar"></span> {{event.eventDate | date:'dd.MM.yyyy at HH:mm'}}
+
+            </div>
+        </a>
+    </div>
+</div>
