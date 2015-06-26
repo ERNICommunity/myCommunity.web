@@ -13,6 +13,15 @@
     "angular-mocks": "^1.3.0",
     "angular-bootstrap": "~0.13.0"
   },
+  "overrides":{
+    "bootstrap":{
+      "main":[
+        "less/bootstrap.less",
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js"
+      ]
+    }
+  },
   "appPath": "app",
   "moduleName": "myCommunityApp"
 }
