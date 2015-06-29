@@ -11,5 +11,4 @@
         $scope.events = events; // to share across childs
     }
 
-
 })();

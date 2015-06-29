@@ -15,16 +15,10 @@
 
         <span class="glyphicon glyphicon-time main-color"></span>
         <span class="event-heading">DATE & TIME</span>
-
-        <!-- FIXME: when rest endpoint provide proper dates -->
-
         <p>{{calendarDetail.event.eventDate | date:'dd.MM.yyyy'}}</p>
 
         <span class="glyphicon glyphicon-map-marker main-color"></span>
         <span class="event-heading">LOCATION</span>
-
-        <!-- FIXME: when rest endpoint provide location -->
-
         <p>{{calendarDetail.event.location}}</p>
 
         <span class="glyphicon glyphicon-user main-color"></span>
@@ -37,7 +31,11 @@
 
         <span class="glyphicon glyphicon-info-sign main-color"></span>
         <span class="event-heading">DESCRIPTION</span>
-        <p>{{calendarDetail.event.description}}</p>
+        <p class="event-description">{{calendarDetail.event.description}}</p>
+
+        <span class="glyphicon glyphicon-ok-circle main-color"></span>
+        <span class="event-heading">PARTICIPANTS ({{calendarDetail.event.participants.length}})</span>
+        <p>{{calendarDetail.event.participants.join(", ")}}</p>
 
     </div>
 </div>

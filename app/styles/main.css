@@ -21,6 +21,10 @@ h3 {
     color: #6c6c6c;
 }
 
+.event-description {
+    text-align: justify;
+}
+
 /*~~~~~~~~~~~~   BUTTONS   ~~~~~~~~~~~~~~~~~~*/
 
 .box-link {
