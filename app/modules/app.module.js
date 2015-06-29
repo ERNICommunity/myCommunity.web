@@ -7,7 +7,7 @@
         .module('myCommunityApp', [
             'ui.bootstrap',
             'myCommunityApp.calendar',
-            'myCommunityApp.event',
+            'myCommunityApp.DataSource',
             'myCommunityApp.news'
         ]);
 

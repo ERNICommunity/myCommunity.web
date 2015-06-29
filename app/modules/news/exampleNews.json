@@ -1,0 +1,22 @@
+[
+  {
+    "id": "557467b0e4b0e81faa4ba5b4",
+    "title": "Vagrant Set up for Hack Session Dev Environments.",
+    "description": "The ERNI Faces team have been busy investigating ways to set up reusasable development environments for individuals attending Hack Sessions. Matias Fernandez will be publishing final news on how to be set up with Vagrant soon.",
+    "author": "jazz",
+    "pictureurls":
+    [
+      "http://www.customminifig.co.uk/wp-content/uploads/2011/04/screenshot_043.jpg"
+    ]
+  },
+  {
+    "id": "5573f108e4b0e81faa4ba4e2",
+    "title": "myCommunity app goes live!",
+    "description": "In a collaborative effort between ECH and EPH Hack teams led by Angus Long and Ruel Dognidon, we are pleased to announce the myCommunity App has gone live ahead of schedule. This app is being developed with both a web and mobile clients (android and iPhone), with RESTapi services written in node.js. Barbara Z?rcher us leading the Product Owner team. If you want to be involved or have cool inputs for Barbara, please get in touch.",
+    "author": "jazz",
+    "pictureurls":
+    [
+      "http://img02.deviantart.net/cadc/i/2013/248/7/8/lego_stormtroopers_with_iphone_cable_by_dgcarl-d6l7db0.jpg"
+    ]
+  }
+]

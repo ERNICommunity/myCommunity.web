@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('myCommunityApp.event', [
+        .module('myCommunityApp.DataSource', [
             'ngResource'
         ]);
 

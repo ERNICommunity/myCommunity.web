@@ -4,7 +4,7 @@
     angular
         .module('myCommunityApp.calendar', [
             'ui.router',
-            'myCommunityApp.event',
+            'myCommunityApp.DataSource',
             'myCommunityApp.calendar.detail'
         ]);
 

@@ -3,7 +3,8 @@
 
     angular
         .module('myCommunityApp.news', [
-            'ui.router'
+            'myCommunityApp.DataSource',
+            'ui.router',
         ]);
 
 })();

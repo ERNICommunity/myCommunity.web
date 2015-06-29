@@ -13,7 +13,12 @@
                 url: '/news',
                 templateUrl: 'modules/news/news.tpl.html',
                 controller: 'NewsController',
-                controllerAs: 'news'
+                controllerAs: 'news',
+                resolve: {
+                    newsItems: ['DataSourceService', function (DataSourceService) {
+                        return DataSourceService.getNewsItems();
+                    }]
+                }
             });
     }
 

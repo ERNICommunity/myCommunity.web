@@ -16,8 +16,8 @@
                 controller: 'CalendarController',
                 controllerAs: 'calendar',
                 resolve: {
-                    events: ['EventService', function (EventService) {
-                        return EventService.getEvents();
+                    events: ['DataSourceService', function (DataSourceService) {
+                        return DataSourceService.getEvents();
                     }]
                 }
             })
