@@ -36,12 +36,6 @@
                 return data;
             });
         }
-
-        function getNewsItem(id) {
-            return $resource('http://mycommunity.nova.swisscloud.io/news', {}).query().$promise.then(function (data) {
-                return data;
-            });
-        }
     }
 })();
 
