@@ -1,0 +1,14 @@
+<span ng-controller="YammerLoginController" id="yammerLoginView">
+    <span id="loggedInView" ng-show="loginData.isLoggedIn" data-placement="bottom" >
+        {{ loginData.userName }}
+    </span>
+    <span id="logoutPopoverContent" hidden>
+        <button class="btn btn-danger" ng-click="logout()">Logout.</button>
+    </span>
+
+    <span id="loggedOutView" ng-hide="loginData.isLoggedIn">
+        <button id="loginButton" class="btn btn-primary" ng-click="login()">Log in.</button>
+    </span>
+
+    <span id="loginProblem" ng-show="loginData.hasProblem">Login is broken.</span>
+</span>

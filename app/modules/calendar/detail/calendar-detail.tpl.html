@@ -7,7 +7,9 @@
                     <a class="btn btn-default pull-left" onclick="self.location='#/calendar'">Back</a>
                 </li>
                 <li>
-                    <button type="button" class="btn btn-default pull-right" data-toggle="modal" data-target="#signUpModal">Sign up!</button>
+                    <button type="button" class="btn btn-default pull-right" ng-show="!loginData.isLoggedIn" disabled>Sign up!</button>
+                    <button type="button" class="btn btn-default pull-right" ng-show="loginData.isLoggedIn && !checkIfUserIsGoing()" ng-click="submitSignUpRequest()">Sign up!</button>
+                    <button type="button" class="btn btn-default pull-right" ng-show="loginData.isLoggedIn && checkIfUserIsGoing()" disabled>Signed up!</button>
                 </li>
             </ul>
         </nav>
@@ -40,37 +42,6 @@
         <span class="glyphicon glyphicon-info-sign main-color"></span>
         <span class="event-heading">DESCRIPTION</span>
         <p class="event-description">{{calendarDetail.event.description}}</p>
-
-        <!-- Signup modal -->
-        <div id="signUpModal" class="modal fade" role="dialog">
-            <div class="modal-dialog modal-sm">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4><span class="glyphicon glyphicon-edit"></span> Sign up</h4>
-                    </div>
-                    <div class="modal-body">
-                        <form role="form" name="signUpForm">
-                            <div class="form-group">
-                                <label for="name"><span class="glyphicon glyphicon-user"></span> Participant Name</label>
-                                <input
-                                        type="text"
-                                        id="name"
-                                        class="form-control #signupInput"
-                                        placeholder="Enter your name.."
-                                        ng-model="signUpName"
-                                        pattern=".{2,40}"
-                                        title="Your name must be between 2 and 40 characters long."
-                                        required>
-                            </div>
-                            <button type="submit" class="btn btn-success btn-block" ng-click="submitSignUpForm(signUpName)">
-                                <span class="glyphicon glyphicon-check"></span> Register me!
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
 
     </div>
 </div>

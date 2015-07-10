@@ -35,6 +35,9 @@
                 <li ui-sref-active="active"><a ui-sref="calendar.list">Calendar</a></li>
                 <li ui-sref-active="active"><a ui-sref="news">News</a></li>
             </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a id="#" ng-include src="'modules/yammerLogin/yammerLogin.tpl.html'"></a></li>
+            </ul>
         </div>
     </div>
 </nav>
@@ -61,6 +64,8 @@
 <!-- endbower -->
 <!-- endbuild -->
 
+<script type="text/javascript" data-app-id="2h4U2Hndg5kdWQ8EdjKi7Q" src="https://c64.assets-yammer.com/assets/platform_js_sdk.js"></script>
+
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
 
 <!-- ADD HERE FIRST THE MODULES -->
@@ -68,6 +73,7 @@
 <script src="modules/calendar/detail/calendar-detail.module.js"></script>
 <script src="modules/calendar/calendar.module.js"></script>
 <script src="modules/news/news.module.js"></script>
+<script src="modules/yammerLogin/yammerLogin.module.js"></script>
 
 
 <script src="modules/app.module.js"></script>
@@ -82,6 +88,8 @@
 
 <script src="modules/news/news.route.js"></script>
 <script src="modules/news/news.controller.js"></script>
+
+<script src="modules/yammerLogin/yammerLogin.controller.js"></script>
 
 <!-- endbuild -->
 </body>

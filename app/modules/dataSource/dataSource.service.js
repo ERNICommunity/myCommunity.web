@@ -20,19 +20,19 @@
         ////////////
 
         function getEvents() {
-            return $resource('http://mycommunity.nova.swisscloud.io/events', {}).query().$promise.then(function (data) {
+            return $resource('http://mycommunity.nova.scapp.io/events', {}).query().$promise.then(function (data) {
                 return data;
             });
         }
 
         function getEvent(id) {
-            return $resource('http://mycommunity.nova.swisscloud.io/events', {id: '@id'}).get({id: id}).$promise.then(function (data) {
+            return $resource('http://mycommunity.nova.scapp.io/events', {id: '@id'}).get({id: id}).$promise.then(function (data) {
                 return data;
             });
         }
 
         function getNewsItems() {
-            return $resource('http://mycommunity.nova.swisscloud.io/news', {}).query().$promise.then(function (data) {
+            return $resource('http://mycommunity.nova.scapp.io/news', {}).query().$promise.then(function (data) {
                 return data;
             });
         }

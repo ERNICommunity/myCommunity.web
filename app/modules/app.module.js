@@ -8,7 +8,7 @@
             'ui.bootstrap',
             'myCommunityApp.calendar',
             'myCommunityApp.DataSource',
-            'myCommunityApp.news'
+            'myCommunityApp.news',
+            'myCommunityApp.yammerLogin'
         ]);
-
 })();
