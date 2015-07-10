@@ -9,7 +9,8 @@
             return {
                 isLoggedIn : false,
                 hasProblem : false,
-                userName : 'undefined',
+                userName : null,
+                mugShot : null,
                 token : null,
             };
         });
@@ -52,7 +53,7 @@
                 data: {},
                 success: function (user) {
                     console.dir(user);
-                    setCurrentUserName(user.full_name); // write to model
+                    setCurrentUserInformation(user); // write to model
                 },
                 error: function (user) {
                     console.warn('YammerLogin: Failed to get user data.');
@@ -63,20 +64,43 @@
 
         // called when logout button is clicked.
         function tryLogOut() {
-            console.log('YammerLogin: Logout clicked, checking current session status.');
-            yam.platform.getLoginStatus(function (response) {
-                    if (response.authResponse) {
-                        console.log('Yammer check login response received, ready to sign out : ' + response.authResponse + ' now calling logout on the API.');
-                        yam.platform.logout(function (successful) {
-                            console.log('Yammer logout response received. Success: ' + successful);
-                            clearLoginData();
-                        })
+
+            BootstrapDialog.show({
+                title: 'Confirm Logout',
+                message: 'You are about to log out. Are you sure?',
+                type: BootstrapDialog.TYPE_WARNING, // <-- Default value is BootstrapDialog.TYPE_PRIMARY
+                size: BootstrapDialog.SIZE_SMALL,
+                closable: true, // <-- Default value is false
+                draggable: true, // <-- Default value is false
+                buttonLabel: 'Roar! Why!', // <-- Default value is 'OK',
+                buttons: [{
+                    label: 'Cancel',
+                    action: function(dialog){ dialog.close(); }
+                },{
+                    icon: 'glyphicon glyphicon-off',
+                    label: 'Log out',
+                    cssClass: 'btn-warning',
+                    autospin: true,
+                    action: function(dialog) { continueLogOut(); dialog.close(); }
+                }]
+            });
+
+            function continueLogOut() {
+                console.log('YammerLogin: Logout clicked, checking current session status.');
+                yam.platform.getLoginStatus(function (response) {
+                        if (response.authResponse) {
+                            console.log('Yammer check login response received, ready to sign out : ' + response.authResponse + ' now calling logout on the API.');
+                            yam.platform.logout(function (successful) {
+                                console.log('Yammer logout response received. Success: ' + successful);
+                                clearLoginData();
+                            })
+                        }
+                        else {
+                            console.warn('Yammer logout failed!')
+                        }
                     }
-                    else {
-                        console.warn('Yammer logout failed!')
-                    }
-                }
-            );
+                );
+            }
         };
 
         // queries Yammer and asks whether the user is logged in.
@@ -91,7 +115,7 @@
                 if (response.authResponse) {
                     if (response.user) {
                         $scope.loginData.token = response.access_token.token;
-                        setCurrentUserName(response.user.full_name);
+                        setCurrentUserInformation(response.user);
                     }
                     else {
                         console.warn('YammerLogin: Logged in, but no user information.');
@@ -101,11 +125,12 @@
             });
         }
 
-        function setCurrentUserName(userName) {
-            console.log('YammerLogin: Logged in as ' + userName);
+        function setCurrentUserInformation(userJson) {
+            console.log('YammerLogin: Logged in as ' + userJson.full_name);
             $scope.$apply(function () {
                 $scope.loginData.isLoggedIn = true;
-                $scope.loginData.userName = userName;
+                $scope.loginData.userName = userJson.full_name;
+                $scope.loginData.mugShot = userJson.mugshot_url;
             });
         }
 
