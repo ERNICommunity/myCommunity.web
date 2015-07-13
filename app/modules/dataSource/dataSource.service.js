@@ -8,8 +8,8 @@
     DataSourceService.$inject = ['$resource', '$http'];
     function DataSourceService($resource, $http) {
 
-        //var backendUrl = 'http://mycommunity.nova.scapp.io';
-        var backendUrl = 'http://localhost:3000';
+        var backendUrl = 'http://mycommunity.nova.scapp.io';
+        //var backendUrl = 'http://localhost:3000';
 
         ////////////
 
