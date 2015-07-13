@@ -1,6 +1,5 @@
 (function () {
     'use strict';
 
-    angular
-        .module('myCommunityApp.yammerLogin', [])
+    angular.module('myCommunityApp.yammerLogin', [])
 })();

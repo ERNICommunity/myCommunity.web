@@ -45,8 +45,7 @@
         };
 
         // load user data through REST API, because the login response does not contain the user information.
-        function fetchUserData()
-        {
+        function fetchUserData() {
             yam.platform.request({
                 url: 'users/current.json',
                 method: 'GET',
@@ -75,13 +74,18 @@
                 buttonLabel: 'Roar! Why!', // <-- Default value is 'OK',
                 buttons: [{
                     label: 'Cancel',
-                    action: function(dialog){ dialog.close(); }
-                },{
+                    action: function (dialog) {
+                        dialog.close();
+                    }
+                }, {
                     icon: 'glyphicon glyphicon-off',
                     label: 'Log out',
                     cssClass: 'btn-warning',
                     autospin: true,
-                    action: function(dialog) { continueLogOut(); dialog.close(); }
+                    action: function (dialog) {
+                        continueLogOut();
+                        dialog.close();
+                    }
                 }]
             });
 
@@ -136,25 +140,11 @@
 
         function clearLoginData() {
             console.log('YammerLogin: Not logged in.');
-            $('#loggedInView').popover('hide'); // make sure logout button is hidden
             $scope.$apply(function () {
                 $scope.loginData.isLoggedIn = false;
                 $scope.loginData.userName = 'undefined';
                 $scope.loginData.token = null;
             });
         }
-
-        // set div 'logoutPopoverContent' as popover content of the 'loggedInView' span.
-        $('#loggedInView').popover({
-            html: true,
-            content: function () {
-                return $('#logoutPopoverContent').html();
-            }
-        })
-            .click(function (ev) {
-                //this is workaround needed in order to make ng-click work inside of popover
-                $compile($('.popover.in').contents())($scope);
-            }
-        );
     }
 })();

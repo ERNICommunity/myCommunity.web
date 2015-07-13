@@ -9,6 +9,7 @@
             'myCommunityApp.calendar',
             'myCommunityApp.DataSource',
             'myCommunityApp.news',
-            'myCommunityApp.yammerLogin'
+            'myCommunityApp.yammerLogin',
+            'myCommunityApp.contentAdmin'
         ]);
 })();

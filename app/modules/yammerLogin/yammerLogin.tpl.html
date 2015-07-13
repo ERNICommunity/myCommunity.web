@@ -5,9 +5,9 @@
         <img ng-src="{{loginData.mugShot}}" class="img-circle" height="40">
     </a>
 
-    <span id="loggedOutView" ng-hide="loginData.isLoggedIn">
+    <a id="loggedOutView" ng-hide="loginData.isLoggedIn">
         <button id="loginButton" class="btn btn-primary" ng-click="login()">Log in.</button>
-    </span>
+    </a>
 
-    <span id="loginProblem" ng-show="loginData.hasProblem">Login is broken.</span>
+    <a id="loginProblem" ng-show="loginData.hasProblem">Login is broken.</a>
 </span>
