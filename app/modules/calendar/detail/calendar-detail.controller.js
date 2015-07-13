@@ -30,7 +30,7 @@
             }
 
             function onCompleted(success) {
-                if (success) {
+                if (success && !$scope.checkIfUserIsGoing()) {
                     vm.event.participants.push(yammerLoginData.userName);
                 }
             }
