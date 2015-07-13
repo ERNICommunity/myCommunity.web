@@ -22,9 +22,14 @@
                 var userName = yammerLoginData.userName;
 
                 console.log('CalendarDetail: User \'' + userName + '\' logged in, signing up.');
-                var url = encodeURI('http://mycommunity.nova.scapp.io/register/' + vm.event.id + '/' + userName);
-                console.log('CalendarDetail: Opening ' + url);
-                $http.get(url)
+                //var url = encodeURI('http://mycommunity.nova.scapp.io/register');
+                var url = 'http://localhost:3000/register';
+                var postData = {
+                    eventId: vm.event.id,
+                    username: userName,
+                    token: yammerLoginData.token
+                };
+                $http.post(url, postData)
                     .success(function(data, status, headers, config) {
                         console.log('CalendarDetail: Posted to ' + url + '\nResponse: ' + JSON.stringify(data));
                         $('#signUpModal').modal('hide');

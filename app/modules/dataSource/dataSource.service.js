@@ -9,33 +9,36 @@
 
     function DataSourceService($resource) {
 
-        var service = {
-            getEvents: getEvents,
-            getEvent: getEvent,
-            getNewsItems: getNewsItems,
-        };
-
-        return service;
+        //var backendUrl = 'http://mycommunity.nova.scapp.io';
+        var backendUrl = 'http://localhost:3000';
 
         ////////////
 
         function getEvents() {
-            return $resource('http://mycommunity.nova.scapp.io/events', {}).query().$promise.then(function (data) {
+            return $resource(backendUrl + '/events', {}).query().$promise.then(function (data) {
                 return data;
             });
         }
 
+
         function getEvent(id) {
-            return $resource('http://mycommunity.nova.scapp.io/events', {id: '@id'}).get({id: id}).$promise.then(function (data) {
+            return $resource(backendUrl + '/events', {id: '@id'}).get({id: id}).$promise.then(function (data) {
                 return data;
             });
         }
 
         function getNewsItems() {
-            return $resource('http://mycommunity.nova.scapp.io/news', {}).query().$promise.then(function (data) {
+            return $resource(backendUrl + '/news', {}).query().$promise.then(function (data) {
                 return data;
             });
         }
+
+        var service = {
+            getEvents: getEvents,
+            getEvent: getEvent,
+            getNewsItems: getNewsItems,
+        };
+        return service;
     }
 })();
 
