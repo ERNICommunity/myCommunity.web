@@ -9,7 +9,7 @@
                 <li>
                     <button type="button" class="btn btn-default pull-right" ng-show="!loginData.isLoggedIn" disabled>Sign up!</button>
                     <button type="button" class="btn btn-default pull-right" ng-show="loginData.isLoggedIn && !checkIfUserIsGoing()" ng-click="submitSignUpRequest()">Sign up!</button>
-                    <button type="button" class="btn btn-default pull-right" ng-show="loginData.isLoggedIn && checkIfUserIsGoing()" disabled>Signed up!</button>
+                    <button type="button" class="btn btn-default pull-right" ng-show="loginData.isLoggedIn && checkIfUserIsGoing()" ng-click="submitUnsubscribeRequest()">Signed up!</button>
                 </li>
             </ul>
         </nav>
