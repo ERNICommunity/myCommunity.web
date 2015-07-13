@@ -33,14 +33,34 @@
                 token: loginData.token
             };
 
-            var registrationEndpoint = backendUrl + '/register';
-            $http.post(registrationEndpoint, postData)
+            var endpoint = backendUrl + '/register';
+            $http.post(endpoint, postData)
                 .success(function (data, status, headers, config) {
-                    console.log('DataSourceService: Posted to ' + registrationEndpoint + '\nResponse: ' + JSON.stringify(data));
+                    console.log('DataSourceService: Posted to ' + endpoint + '\nResponse: ' + JSON.stringify(data));
                     callback(true);
                 })
                 .error(function (data, status, headers, config) {
-                    alert('Registration failed - the backend server did not respond as expected. (data:' + data + ')');
+                    alert('Registration failed - the backend server did not respond as expected. (data:' + JSON.stringify(data) + ')');
+                    callback(false);
+                });
+        }
+
+        function unregisterFromEvent(eventId, loginData, callback) {
+
+            var postData = {
+                eventId: eventId,
+                username: loginData.userName,
+                token: loginData.token
+            };
+
+            var endpoint = backendUrl + '/unregister';
+            $http.post(endpoint, postData)
+                .success(function (data, status, headers, config) {
+                    console.log('DataSourceService: Posted to ' + endpoint + '\nResponse: ' + JSON.stringify(data));
+                    callback(true);
+                })
+                .error(function (data, status, headers, config) {
+                    alert('Registration failed - the backend server did not respond as expected. (data:' + JSON.stringify(data) + ')');
                     callback(false);
                 });
         }
@@ -55,6 +75,7 @@
             getEvents: getEvents,
             getEvent: getEvent,
             registerForEvent: registerForEvent,
+            unregisterFromEvent: unregisterFromEvent,
             getNewsItems: getNewsItems,
         };
         return service;

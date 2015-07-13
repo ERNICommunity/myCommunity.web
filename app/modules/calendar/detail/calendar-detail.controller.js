@@ -35,6 +35,26 @@
                 }
             }
         };
-    }
 
+        $scope.submitUnsubscribeRequest = function () {
+
+            if (yammerLoginData.isLoggedIn) {
+                console.log('CalendarDetail: User \'' + yammerLoginData.userName + '\' logged in, unsubscribing from event.');
+                dataSourceService.unregisterFromEvent(vm.event.id, yammerLoginData, onCompleted);
+            }
+            else {
+                // this should be prevented by the UI: if no user is signed on, the sign out shouldn't be enabled.
+                alert('You need to sign in first!');
+            }
+
+            function onCompleted(success) {
+                if (success) {
+                    var index = vm.event.participants.indexOf(yammerLoginData.userName);
+                    if (index > -1) {
+                        vm.event.participants.splice(index, 1);
+                    }
+                }
+            }
+        };
+    }
 })();
