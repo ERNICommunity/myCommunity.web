@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    var module = angular.module('myCommunityApp.contentAdmin.navButton');
+    var module = angular.module('myCommunityApp.contentAdmin');
     module.controller('AdminNavButtonController', ['$scope', 'YammerLoginData', AdminNavButtonController ]);
 
     function AdminNavButtonController($scope, YammerLoginData) {
