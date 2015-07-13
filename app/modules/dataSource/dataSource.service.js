@@ -5,9 +5,8 @@
         .module('myCommunityApp.DataSource')
         .factory('DataSourceService', DataSourceService);
 
-    DataSourceService.$inject = ['$resource'];
-
-    function DataSourceService($resource) {
+    DataSourceService.$inject = ['$resource', '$http'];
+    function DataSourceService($resource, $http) {
 
         //var backendUrl = 'http://mycommunity.nova.scapp.io';
         var backendUrl = 'http://localhost:3000';
@@ -20,11 +19,30 @@
             });
         }
 
-
         function getEvent(id) {
             return $resource(backendUrl + '/events', {id: '@id'}).get({id: id}).$promise.then(function (data) {
                 return data;
             });
+        }
+
+        function registerForEvent(eventId, loginData, callback) {
+
+            var postData = {
+                eventId: eventId,
+                username: loginData.userName,
+                token: loginData.token
+            };
+
+            var registrationEndpoint = backendUrl + '/register';
+            $http.post(registrationEndpoint, postData)
+                .success(function (data, status, headers, config) {
+                    console.log('DataSourceService: Posted to ' + registrationEndpoint + '\nResponse: ' + JSON.stringify(data));
+                    callback(true);
+                })
+                .error(function (data, status, headers, config) {
+                    alert('Registration failed - the backend server did not respond as expected. (data:' + data + ')');
+                    callback(false);
+                });
         }
 
         function getNewsItems() {
@@ -36,6 +54,7 @@
         var service = {
             getEvents: getEvents,
             getEvent: getEvent,
+            registerForEvent: registerForEvent,
             getNewsItems: getNewsItems,
         };
         return service;
