@@ -2,7 +2,7 @@
     'use strict';
 
     var module = angular.module('myCommunityApp.yammerLogin');
-    module.controller('YammerLoginController', ['$scope', '$compile', 'YammerLoginData', YammerLoginController]);
+    module.controller('YammerLoginController', ['$scope', '$rootScope', 'YammerLoginData', YammerLoginController]);
     module.factory('YammerLoginData', function()
         {
             // 'YammerLoginData' is the data model, which can also be injected in other places.
@@ -15,7 +15,7 @@
             };
         });
 
-    function YammerLoginController($scope, $compile, YammerLoginData) {
+    function YammerLoginController($scope, $rootScope, YammerLoginData) {
 
         // define view model
         $scope.loginData = YammerLoginData;
@@ -97,6 +97,8 @@
                             yam.platform.logout(function (successful) {
                                 console.log('Yammer logout response received. Success: ' + successful);
                                 clearLoginData();
+
+                                $rootScope.$broadcast('YammerUserLogout', []);
                             })
                         }
                         else {
