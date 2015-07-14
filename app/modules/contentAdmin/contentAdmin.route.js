@@ -12,14 +12,14 @@
             .state('contentAdmin', {
                 abstract: true,
                 url: '/contentAdmin',
-                template: '<div ui-view></div>', // main container for child views
+                template: '<div ui-view></div>', // template contains only 'view' container for child views
                 controller: 'ContentAdminBaseController'
             })
 
             // child views
             .state('contentAdmin.overview', {
                 url: '/',
-                templateUrl: 'modules/contentAdmin/overview/overview.tpl.html'
+                templateUrl: 'modules/contentAdmin/overview/adminOverview.tpl.html'
             })
             .state('contentAdmin.editEvent', {
                 url: '/editEvent',
