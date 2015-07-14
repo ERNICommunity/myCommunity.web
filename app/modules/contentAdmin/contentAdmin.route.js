@@ -27,7 +27,7 @@
                 templateUrl: 'modules/contentAdmin/overview/adminOverview.tpl.html'
             })
             .state('contentAdmin.editEvent', {
-                url: '/editEvent',
+                url: '/editEvent/:id',
                 templateUrl: 'modules/contentAdmin/editEvent/editEvent.tpl.html'
             })
             .state('contentAdmin.editNews', {

@@ -1,10 +1,9 @@
-<form class="form-horizontal">
+<form class="form-horizontal" ng-controller="EditEventController">
     <fieldset>
         <legend>Edit Event</legend>
 
         <div class="form-group">
             <label class="col-md-4 control-label" for="title">Title</label>
-
             <div class="col-md-6">
                 <input id="title" ng-model="event.title" type="text" placeholder="" class="form-control input-md"
                        required="">
@@ -13,28 +12,28 @@
 
         <div class="form-group">
             <label class="col-md-4 control-label" for="type">Event Type</label>
-
-            <div class="col-md-6">
-                <select id="type" ng-model="event.type" class="form-control">
-                    <option value="">MeetUp</option>
-                    <option value="">Hack Session</option>
-                    <option value="">EDD Session</option>
+            <div class="col-md-3">
+                <select id="type" ng-model="event.type" class="form-control" ng-options="eType for eType in eventTypeOptions">
                 </select>
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-md-4 control-label" for="date">Date</label>
+            <div class="col-md-3">
+                <input id="date" ng-model="event.sexyDate" type="datetime-local" class="form-control input-md" required="">
+            </div>
+        </div>
 
-            <div class="col-md-6">
-                <input id="date" ng-model="event.date" type="text" placeholder="" class="form-control input-md"
-                       required="">
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="bookablehours">Bookable hours</label>
+            <div class="col-md-3">
+                <input id="bookablehours" ng-model="event.bookablehours" type="text" class="form-control input-md" required="">
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-md-4 control-label" for="location">Location</label>
-
             <div class="col-md-6">
                 <input id="location" ng-model="event.location" type="text" placeholder="" class="form-control input-md"
                        required="">
@@ -43,7 +42,6 @@
 
         <div class="form-group">
             <label class="col-md-4 control-label" for="pictureurl">Picture URL</label>
-
             <div class="col-md-6">
                 <input id="pictureurl" ng-model="event.pictureurl" type="text" placeholder="http://"
                        class="form-control input-md"
@@ -53,12 +51,11 @@
 
         <div class="form-group">
             <label class="col-md-4 control-label" for="descritption">Description</label>
-
             <div class="col-md-6">
                 <textarea
                         class="form-control"
                         id="descritption"
-                        ng-model="event.descritption"
+                        ng-model="event.description"
                         rows="6"
                         style="resize: none"
                         ></textarea>
