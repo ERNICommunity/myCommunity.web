@@ -1,2 +1,73 @@
-<a class="btn" ui-sref="contentAdmin.overview">back</a>
-<div class="jumbotron"><h2>Here cometh the event detail editor.</h2></div>
+<form class="form-horizontal">
+    <fieldset>
+        <legend>Edit Event</legend>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="title">Title</label>
+
+            <div class="col-md-6">
+                <input id="title" ng-model="event.title" type="text" placeholder="" class="form-control input-md"
+                       required="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="type">Event Type</label>
+
+            <div class="col-md-6">
+                <select id="type" ng-model="event.type" class="form-control">
+                    <option value="">MeetUp</option>
+                    <option value="">Hack Session</option>
+                    <option value="">EDD Session</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="date">Date</label>
+
+            <div class="col-md-6">
+                <input id="date" ng-model="event.date" type="text" placeholder="" class="form-control input-md"
+                       required="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="location">Location</label>
+
+            <div class="col-md-6">
+                <input id="location" ng-model="event.location" type="text" placeholder="" class="form-control input-md"
+                       required="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="pictureurl">Picture URL</label>
+
+            <div class="col-md-6">
+                <input id="pictureurl" ng-model="event.pictureurl" type="text" placeholder="http://"
+                       class="form-control input-md"
+                       required="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="descritption">Description</label>
+
+            <div class="col-md-6">
+                <textarea
+                        class="form-control"
+                        id="descritption"
+                        ng-model="event.descritption"
+                        rows="6"
+                        style="resize: none"
+                        ></textarea>
+            </div>
+        </div>
+
+        <div class="container col-md-7 col-md-offset-3">
+            <a class="btn btn-warning" ui-sref="contentAdmin.overview">Cancel</a>
+            <button class="btn btn-info pull-right">Submit</button>
+        </div>
+    </fieldset>
+</form>
