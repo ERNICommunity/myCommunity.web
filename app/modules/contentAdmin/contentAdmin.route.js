@@ -13,7 +13,12 @@
                 abstract: true,
                 url: '/contentAdmin',
                 template: '<div ui-view></div>', // template contains only 'view' container for child views
-                controller: 'ContentAdminBaseController'
+                controller: 'ContentAdminBaseController',
+                controllerAs: 'contentAdminBase',
+                resolve: {
+                    events: ['DataSourceService', function (DataSourceService) { return DataSourceService.getEvents();  }],
+                    news: ['DataSourceService', function (DataSourceService) { return DataSourceService.getNewsItems();  }]
+                }
             })
 
             // child views
