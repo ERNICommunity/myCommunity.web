@@ -13,7 +13,7 @@
                 abstract: true,
                 url: '/contentAdmin',
                 template: '<div ui-view></div>', // main container for child views
-                controller: contentAdminGlobalController
+                controller: 'ContentAdminBaseController'
             })
 
             // child views
@@ -30,19 +30,4 @@
                 templateUrl: 'modules/contentAdmin/editNews/editNews.tpl.html'
             });
     }
-
-    // TODO: move to own file
-    // make some things available globally
-    function contentAdminGlobalController($scope, $state) {
-
-        // make sure we move away from our pages on logout
-        $scope.$on('YammerUserLogout', onUserLogout)
-        function onUserLogout() {
-            console.info('ContentAdminController: onUserLogout, navigate away from admin page.')
-            if ($state.includes('contentAdmin')) {
-                $state.go('calendar.list');
-            }
-        }
-    };
-
 })();
