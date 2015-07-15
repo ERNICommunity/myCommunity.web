@@ -1,2 +1,50 @@
-<a class="btn" ui-sref="contentAdmin.overview">back</a>
-<div class="jumbotron"><h2>Here cometh the news detail editor.</h2></div>
+<form class="form-horizontal" ng-controller="EditNewsController">
+    <fieldset>
+        <legend>Edit News Item</legend>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="title">Title</label>
+            <div class="col-md-6">
+                <input id="title" ng-model="newsItem.title" type="text" placeholder="" class="form-control input-md"
+                       required="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label">Picture URLs</label>
+            <div class="container col-md-6">
+                <div class="col-md-12 input-group" ng-repeat="url in newsItem.pictureurls track by $index" style="padding-bottom: 3px">
+                        <input ng-model="url" type="text" class="form-control input-md">
+                        <span
+                                ng-click="newsItem.pictureurls.splice($index, 1)"
+                                ng-show="!$last"
+                                class="glyphicon glyphicon-minus input-group-addon a">
+                        </span>
+                        <span
+                                ng-click="newsItem.pictureurls.push('')"
+                                ng-show="$last"
+                                class="glyphicon glyphicon-plus input-group-addon a">
+                        </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="descritption">Description</label>
+            <div class="col-md-6">
+                <textarea
+                        class="form-control"
+                        id="descritption"
+                        ng-model="newsItem.description"
+                        rows="8"
+                        style="resize: none"
+                        ></textarea>
+            </div>
+        </div>
+
+        <div class="container col-md-7 col-md-offset-3">
+            <a class="btn btn-warning" ui-sref="contentAdmin.overview">Cancel</a>
+            <button class="btn btn-info pull-right">Submit</button>
+        </div>
+    </fieldset>
+</form>

@@ -16,6 +16,5 @@
         $scope.event = eventCopy;
 
         $scope.eventTypeOptions = [ 'Meetup', 'Hack Session', 'EDD'];
-
     });
 })();

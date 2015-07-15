@@ -26,7 +26,7 @@
             <tr ng-repeat="n in news">
                 <td> {{n.title}} </td>
                 <td style="width: 50px">
-                    <a ui-sref="contentAdmin.editNews"><span class="glyphicon glyphicon-pencil"></span></a>
+                    <a ng-href="#/contentAdmin/editNews/{{n.id}}"><span class="glyphicon glyphicon-pencil"></span></a>
                     <a><span class="glyphicon glyphicon-trash"></span></a>
                 </td>
             <tr/>

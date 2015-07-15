@@ -31,7 +31,7 @@
                 templateUrl: 'modules/contentAdmin/editEvent/editEvent.tpl.html'
             })
             .state('contentAdmin.editNews', {
-                url: '/editNews',
+                url: '/editNews/:id',
                 templateUrl: 'modules/contentAdmin/editNews/editNews.tpl.html'
             });
     }
