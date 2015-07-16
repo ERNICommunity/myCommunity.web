@@ -11,6 +11,11 @@
             $scope.news = news;
             $scope.loginData = YammerLoginData;
 
+            if (!YammerLoginData.isLoggedIn)
+            {
+                $state.go('calendar.list');
+            }
+
             // make sure we move away from our pages on logout
             $scope.$on('YammerUserLogout', onUserLogout)
             function onUserLogout() {

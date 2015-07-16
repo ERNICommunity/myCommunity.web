@@ -7,7 +7,9 @@
         var eventId = $stateParams.id;
         $scope.isNewEvent = eventId == '';
 
-        if (!$scope.isNewEvent) {
+        if ($scope.isNewEvent) {
+            $scope.event = { organiser: $scope.loginData.userName }
+        } else {
             var eventToBeEdited = $scope.events.filter(function (elem) {
                 return elem.id === eventId;
             })[0];

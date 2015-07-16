@@ -15,7 +15,7 @@
             <label class="col-md-4 control-label">Picture URLs</label>
             <div class="container col-md-6">
                 <div class="col-md-12 input-group" ng-repeat="url in newsItem.pictureurls track by $index" style="padding-bottom: 3px">
-                        <input ng-model="url" type="text" class="form-control input-md">
+                        <input ng-model="newsItem.pictureurls[$index]" type="text" class="form-control input-md">
                         <span
                                 ng-click="newsItem.pictureurls.splice($index, 1)"
                                 ng-show="!$last"

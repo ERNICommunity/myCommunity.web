@@ -9,7 +9,10 @@
 
         if ($scope.isNewItem) {
             // create picture urls to populate dynamic field list in form
-            $scope.newsItem = {pictureurls: ['']}
+            $scope.newsItem = {
+                author: $scope.loginData.userName,
+                pictureurls: ['']
+            };
         } else {
             var selectedNewsItem = $scope.news.filter(function (elem) {
                 return elem.id === newsItemId;
@@ -18,11 +21,8 @@
             $scope.newsItem = newsItemCopy;
         }
 
-        $scope.isLastPictureUrl = function (index) {
-            return index == $scope.newsItem.pictureurls.length - 1;
-        }
-
         $scope.submit = function() {
+            console.dir($scope.newsItem);
             DataSourceService.updateNewsItem($scope.newsItem, $scope.loginData, onSubmitted);
         }
 
