@@ -1,6 +1,6 @@
 <div class="row search-results">
     <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12"
-         ng-repeat="newsitem in news.newsItems | orderBy:id">
+         ng-repeat="newsitem in news.newsItems | orderBy:newsDate">
         <div class="thumbnail" ng-href="#/news">
             <img ng-src="{{newsitem.pictureurls[0]}}" alt="{{newsitem.title}}">
             <div class="caption">

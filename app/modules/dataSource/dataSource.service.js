@@ -66,6 +66,17 @@
             sendPostRequest(endpoint, postData, callback);
         }
 
+        function deleteNewsItem(id, loginData, callback) {
+            var postData = {
+                id: id,
+                username: loginData.userName,
+                token: loginData.token
+            };
+            console.dir(postData);
+            var endpoint = backendUrl + '/deleteNewsItem';
+            sendPostRequest(endpoint, postData, callback);
+        }
+
         function sendPostRequest(endpoint, postData, callback) {
             $http.post(endpoint, postData)
                 .success(function (data, status, headers, config) {
@@ -93,6 +104,7 @@
             updateEvent: updateEvent,
             getNewsItems: getNewsItems,
             updateNewsItem: updateNewsItem,
+            deleteNewsItem: deleteNewsItem,
         };
         return service;
     }

@@ -3,10 +3,14 @@
 
     angular
         .module('myCommunityApp.contentAdmin')
-        .controller('AdminOverviewController',
-        ['$scope', 'DataSourceService', 'YammerLoginData', AdminOverviewController]);
+        .controller('AdminOverviewController', function ($scope, $state, DataSourceService) {
 
-    function AdminOverviewController($scope, YammerLoginData) {
-        $scope.loginData = YammerLoginData;
-    }
+            $scope.deleteNewsItem = function (id) {
+                DataSourceService.deleteNewsItem(id, $scope.loginData, onSubmitted);
+            };
+
+            function onSubmitted(success) {
+                if (success) $state.go('contentAdmin.overview', {}, { reload: true });
+            }
+        });
 })();
