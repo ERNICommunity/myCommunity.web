@@ -1,6 +1,7 @@
 <form class="form-horizontal" ng-controller="EditNewsController">
     <fieldset>
-        <legend>Edit News Item</legend>
+        <legend ng-show="isNewItem">Create News Item</legend>
+        <legend ng-show="!isNewItem">Edit News Item</legend>
 
         <div class="form-group">
             <label class="col-md-4 control-label" for="title">Title</label>
