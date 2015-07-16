@@ -32,35 +32,39 @@
                 username: loginData.userName,
                 token: loginData.token
             };
-
             var endpoint = backendUrl + '/register';
-            $http.post(endpoint, postData)
-                .success(function (data, status, headers, config) {
-                    console.log('DataSourceService: Posted to ' + endpoint + '\nResponse: ' + JSON.stringify(data));
-                    callback(true);
-                })
-                .error(function (data, status, headers, config) {
-                    alert('Registration failed - the backend server did not respond as expected. (data:' + JSON.stringify(data) + ')');
-                    callback(false);
-                });
+            sendPostRequest(endpoint, postData, callback);
         }
 
         function unregisterFromEvent(eventId, loginData, callback) {
-
             var postData = {
                 eventId: eventId,
                 username: loginData.userName,
                 token: loginData.token
             };
-
             var endpoint = backendUrl + '/unregister';
+            sendPostRequest(endpoint, postData, callback);
+        }
+
+        function updateEvent(eventJson, loginData, callback) {
+            var postData = {
+                eventJson: eventJson,
+                username: loginData.userName,
+                token: loginData.token
+            };
+            var endpoint = backendUrl + '/updateEvent';
+            sendPostRequest(endpoint, postData, callback);
+        }
+
+        function sendPostRequest(endpoint, postData, callback) {
             $http.post(endpoint, postData)
                 .success(function (data, status, headers, config) {
                     console.log('DataSourceService: Posted to ' + endpoint + '\nResponse: ' + JSON.stringify(data));
                     callback(true);
                 })
                 .error(function (data, status, headers, config) {
-                    alert('Registration failed - the backend server did not respond as expected. (data:' + JSON.stringify(data) + ')');
+                    var message = 'Registration failed - the backend server did not respond as expected. (data:' + JSON.stringify(data) + ')';
+                    console.warn(message);
                     callback(false);
                 });
         }
@@ -76,6 +80,7 @@
             getEvent: getEvent,
             registerForEvent: registerForEvent,
             unregisterFromEvent: unregisterFromEvent,
+            updateEvent: updateEvent,
             getNewsItems: getNewsItems,
         };
         return service;

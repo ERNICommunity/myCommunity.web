@@ -4,11 +4,12 @@
     // Controller for the empty ui-view (declared in route.js):
     // Sets up the parent-scope with things that are used globally in the admin-content views
     angular.module('myCommunityApp.contentAdmin')
-        .controller('ContentAdminBaseController', function ($scope, $state, events, news) {
+        .controller('ContentAdminBaseController', function ($scope, $state, YammerLoginData, events, news) {
 
             // share across child views
             $scope.events = events;
             $scope.news = news;
+            $scope.loginData = YammerLoginData;
 
             // make sure we move away from our pages on logout
             $scope.$on('YammerUserLogout', onUserLogout)
