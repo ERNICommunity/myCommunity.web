@@ -17,6 +17,7 @@
             // create a copy to allow undo.
             var eventCopy = jQuery.extend(true, {}, eventToBeEdited);
             eventCopy.sexyDate = new Date(eventCopy.eventDate);
+            eventCopy.sexyBookableHours = parseInt(eventCopy.bookablehours);
             $scope.event = eventCopy;
         }
 
@@ -24,6 +25,7 @@
 
         $scope.submit = function() {
             $scope.event.eventDate = $filter('date')($scope.event.sexyDate, 'yyyy-MM-dd HH:mm');
+            $scope.event.bookablehours = '' + $scope.event.sexyBookableHours;
             console.log($scope.event.eventDate);
             console.info($scope.event.sexyDate);
             DataSourceService.updateEvent($scope.event, $scope.loginData, onSubmitted);

@@ -29,7 +29,7 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="bookablehours">Bookable hours</label>
             <div class="col-md-3">
-                <input id="bookablehours" ng-model="event.bookablehours" type="text" class="form-control input-md" required="">
+                <input id="bookablehours" ng-model="event.sexyBookableHours" type="number" class="form-control input-md" required="" step="1">
             </div>
         </div>
 
@@ -65,7 +65,7 @@
 
         <div class="container col-md-7 col-md-offset-3">
             <a class="btn btn-warning" ui-sref="contentAdmin.overview">Cancel</a>
-            <button class="btn btn-info pull-right" ng-click="submit()">Submit</button>
+            <input type="submit" class="btn btn-info pull-right" ng-click="submit()" value="Submit">
         </div>
     </fieldset>
 </form>
