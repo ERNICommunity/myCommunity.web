@@ -1,6 +1,7 @@
 <form class="form-horizontal" ng-controller="EditEventController">
     <fieldset>
-        <legend>Edit Event</legend>
+        <legend ng-show="isNewEvent">Create Event</legend>
+        <legend ng-show="!isNewEvent">Edit Event</legend>
 
         <div class="form-group">
             <label class="col-md-4 control-label" for="title">Title</label>

@@ -4,17 +4,20 @@
     var module = angular.module('myCommunityApp.contentAdmin');
     module.controller('EditEventController', function ($stateParams, $scope) {
 
-        var eventToBeEdited = $scope.events.filter(function (elem) {
-            return elem.id === $stateParams.id;
-        })[0];
+        var eventId = $stateParams.id;
+        $scope.isNewEvent = eventId == '';
 
-        console.dir(eventToBeEdited);
+        if (!$scope.isNewEvent) {
+            var eventToBeEdited = $scope.events.filter(function (elem) {
+                return elem.id === eventId;
+            })[0];
 
-        // create a copy to allow undo.
-        var eventCopy = jQuery.extend(true, {}, eventToBeEdited);
-        eventCopy.sexyDate = new Date(eventCopy.eventDate);
-        $scope.event = eventCopy;
+            // create a copy to allow undo.
+            var eventCopy = jQuery.extend(true, {}, eventToBeEdited);
+            eventCopy.sexyDate = new Date(eventCopy.eventDate);
+            $scope.event = eventCopy;
+        }
 
-        $scope.eventTypeOptions = [ 'Meetup', 'Hack Session', 'EDD'];
+        $scope.eventTypeOptions = ['Meetup', 'Hack Session', 'EDD'];
     });
 })();

@@ -4,7 +4,7 @@
         <table class="table table-hover">
             <p class="h3">
                 Your Events
-                <a class="btn pull-right glyphicon glyphicon-plus-sign" ui-sref="contentAdmin.editEvent"></a>
+                <a class="btn pull-right glyphicon glyphicon-plus-sign" ng-href="#/contentAdmin/editEvent/"></a>
             </p>
             <tr ng-repeat="e in events">
                 <td> {{e.title}} </td>
@@ -20,7 +20,7 @@
     <div class="col-xs-12 col-md-5">
         <p class="h3">
             Your News
-            <a class="btn pull-right glyphicon glyphicon-plus-sign" ng-href="#/contentAdmin/editNews/new"></a>
+            <a class="btn pull-right glyphicon glyphicon-plus-sign" ng-href="#/contentAdmin/editNews/"></a>
         </p>
         <table class="table table-hover">
             <tr ng-repeat="n in news">
