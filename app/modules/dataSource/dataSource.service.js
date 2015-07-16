@@ -46,13 +46,23 @@
             sendPostRequest(endpoint, postData, callback);
         }
 
-        function updateEvent(eventJson, loginData, callback) {
+        function updateEvent(event, loginData, callback) {
             var postData = {
-                eventJson: eventJson,
+                eventJson: event,
                 username: loginData.userName,
                 token: loginData.token
             };
             var endpoint = backendUrl + '/updateEvent';
+            sendPostRequest(endpoint, postData, callback);
+        }
+
+        function updateNewsItem(newsItem, loginData, callback) {
+            var postData = {
+                newsItemJson: newsItem,
+                username: loginData.userName,
+                token: loginData.token
+            };
+            var endpoint = backendUrl + '/updateNewsItem';
             sendPostRequest(endpoint, postData, callback);
         }
 
@@ -82,6 +92,7 @@
             unregisterFromEvent: unregisterFromEvent,
             updateEvent: updateEvent,
             getNewsItems: getNewsItems,
+            updateNewsItem: updateNewsItem,
         };
         return service;
     }

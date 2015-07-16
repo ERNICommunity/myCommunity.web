@@ -2,7 +2,7 @@
     'use strict';
 
     var module = angular.module('myCommunityApp.contentAdmin');
-    module.controller('EditNewsController', function ($stateParams, $scope) {
+    module.controller('EditNewsController', function ($stateParams, $scope, $state, DataSourceService) {
 
         var newsItemId = $stateParams.id;
         $scope.isNewItem = newsItemId == '';
@@ -20,6 +20,14 @@
 
         $scope.isLastPictureUrl = function (index) {
             return index == $scope.newsItem.pictureurls.length - 1;
+        }
+
+        $scope.submit = function() {
+            DataSourceService.updateNewsItem($scope.newsItem, $scope.loginData, onSubmitted);
+        }
+
+        function onSubmitted(success) {
+            if (success) $state.go('contentAdmin.overview', {}, { reload: true });
         }
     });
 })();
