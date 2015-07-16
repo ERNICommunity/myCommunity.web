@@ -56,6 +56,23 @@
             sendPostRequest(endpoint, postData, callback);
         }
 
+        function deleteEvent(id, loginData, callback) {
+            var postData = {
+                id: id,
+                username: loginData.userName,
+                token: loginData.token
+            };
+            console.dir(postData);
+            var endpoint = backendUrl + '/deleteEvent';
+            sendPostRequest(endpoint, postData, callback);
+        }
+
+        function getNewsItems() {
+            return $resource(backendUrl + '/news', {}).query().$promise.then(function (data) {
+                return data;
+            });
+        }
+
         function updateNewsItem(newsItem, loginData, callback) {
             var postData = {
                 newsItemJson: newsItem,
@@ -90,18 +107,13 @@
                 });
         }
 
-        function getNewsItems() {
-            return $resource(backendUrl + '/news', {}).query().$promise.then(function (data) {
-                return data;
-            });
-        }
-
         var service = {
             getEvents: getEvents,
             getEvent: getEvent,
             registerForEvent: registerForEvent,
             unregisterFromEvent: unregisterFromEvent,
             updateEvent: updateEvent,
+            deleteEvent: deleteEvent,
             getNewsItems: getNewsItems,
             updateNewsItem: updateNewsItem,
             deleteNewsItem: deleteNewsItem,
