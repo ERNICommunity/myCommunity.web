@@ -34,10 +34,8 @@
                 <li ui-sref-active="active"><a ui-sref="calendar.list">Calendar</a></li>
                 <li ui-sref-active="active"><a ui-sref="news">News</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li ui-sref-active="active" ng-include src="'modules/contentAdmin/navButton/adminNavButton.tpl.html'"></li>
-                <li ng-include src="'modules/yammerLogin/yammerLogin.tpl.html'"></li>
-            </ul>
+            <ul ng-include src="'modules/yammerLogin/yammerLogin.tpl.html'" class="nav navbar-nav navbar-right"></ul>
+            <ul ng-include src="'modules/contentAdmin/navButton/adminNavButton.tpl.html'" class="nav navbar-nav navbar-right"></ul>
         </div>
     </div>
 </nav>

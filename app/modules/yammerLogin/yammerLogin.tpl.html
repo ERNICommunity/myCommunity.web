@@ -1,13 +1,14 @@
-<span ng-controller="YammerLoginController" id="yammerLoginView">
-    <a class="btn" id="loggedInView" ng-show="loginData.isLoggedIn" ng-click="logout()">
+<li ng-controller="YammerLoginController" id="yammerLoginView">
+    <a id="loggedInView" ng-show="loginData.isLoggedIn" ng-click="logout()" href=""
+       style="padding-top: 8px; padding-bottom: 0px">
         <span class="visible-xs-inline"> Log out </span>
-        {{ loginData.userName }}
+        {{loginData.userName}}
         <img ng-src="{{loginData.mugShot}}" class="img-circle" height="40">
     </a>
 
-    <a id="loggedOutView" ng-hide="loginData.isLoggedIn">
-        <button id="loginButton" class="btn btn-primary" ng-click="login()">Log in.</button>
-    </a>
+    <div id="loggedOutView" ng-hide="loginData.isLoggedIn" style="padding-top: 8px">
+        <button id="loginButton" class="btn btn-primary" ng-click="login()"> Log in.</button>
+    </div>
 
-    <a id="loginProblem" ng-show="loginData.hasProblem">Login is broken.</a>
-</span>
+<span id="loginProblem" ng-show="loginData.hasProblem">Login is broken.</span>
+</li>

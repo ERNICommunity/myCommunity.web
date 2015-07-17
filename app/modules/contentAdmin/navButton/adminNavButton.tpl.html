@@ -1,5 +1,6 @@
-<span ng-controller="AdminNavButtonController" id="editContentNavbar">
-    <a class="btn btn-default" ui-sref="contentAdmin.overview" ng-show="loginData.isLoggedIn">
-        <span class="glyphicon glyphicon-edit" ng-show="userIsLoggedIn"></span> Edit Posts
-    </a>
-</span>
+    <li ng-controller="AdminNavButtonController"  ng-show="loginData.isLoggedIn" ui-sref-active="active">
+        <a ui-sref="contentAdmin.overview">
+            <span class="glyphicon glyphicon-edit" ng-show="userIsLoggedIn"></span>
+            Edit Posts
+        </a>
+    </li>
