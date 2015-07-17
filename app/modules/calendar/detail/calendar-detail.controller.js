@@ -14,8 +14,8 @@
 
         $scope.loginData = yammerLoginData;
         $scope.checkIfUserIsGoing = function () {
-            return yammerLoginData.isLoggedIn && $.inArray(yammerLoginData.userName, vm.event.participants) != -1;
-        }
+            return yammerLoginData.isLoggedIn && $.inArray(yammerLoginData.userName, vm.event.participants) !== -1;
+        };
 
         // callback on signup button click
         $scope.submitSignUpRequest = function () {

@@ -1,47 +1,69 @@
 <div class="row">
-    <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12">
+    <div class="col-lg-10 col-lg-offset-1
+                col-md-10 col-lg-offset-1
+                col-sm-10 col-lg-offset-1
+                col-xs-12">
 
         <nav>
             <ul class="pager">
                 <li>
-                    <a class="btn btn-default pull-left" onclick="self.location='#/calendar'">Back</a>
+                    <button class="btn btn-default pull-left" onclick="self.location='#/calendar'">Back</button>
                 </li>
                 <li>
-                    <button type="button" class="btn btn-default pull-right" ng-show="!loginData.isLoggedIn" disabled>Sign up!</button>
-                    <button type="button" class="btn btn-default pull-right" ng-show="loginData.isLoggedIn && !checkIfUserIsGoing()" ng-click="submitSignUpRequest()">Sign up!</button>
-                    <button type="button" class="btn btn-default pull-right" ng-show="loginData.isLoggedIn && checkIfUserIsGoing()" ng-click="submitUnsubscribeRequest()">Signed up!</button>
+                    <button type="button" class="btn btn-default pull-right" ng-show="!loginData.isLoggedIn" disabled>
+                        Sign up!
+                    </button>
+                    <button type="button" class="btn btn-default pull-right"
+                            ng-show="loginData.isLoggedIn && !checkIfUserIsGoing()" ng-click="submitSignUpRequest()">
+                        Sign up!
+                    </button>
+                    <button type="button" class="btn btn-default pull-right"
+                            ng-show="loginData.isLoggedIn && checkIfUserIsGoing()"
+                            ng-click="submitUnsubscribeRequest()">Signed up!
+                    </button>
                 </li>
             </ul>
         </nav>
 
-        <!-- Event Details -->
-        <img class="img-responsive" ng-src="{{calendarDetail.event.pictureurl}}" alt="{{calendarDetail.event.title}}">
+        <!-- Image left or on top of description -->
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <h3><img class="img-responsive" ng-src="{{calendarDetail.event.pictureurl}}"
+                 alt="{{calendarDetail.event.title}}"></h3>
+        </div>
 
-        <h3>{{calendarDetail.event.title}}</h3>
+        <!-- Description -->
+        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+            <h3>{{calendarDetail.event.title}}</h3>
 
-        <span class="glyphicon glyphicon-time main-color"></span>
-        <span class="event-heading">DATE & TIME</span>
-        <p>{{calendarDetail.event.eventDate | date:'dd.MM.yyyy hh:mm'}}</p>
+            <span class="glyphicon glyphicon-time main-color"></span>
+            <span class="event-heading">DATE & TIME</span>
 
-        <span class="glyphicon glyphicon-map-marker main-color"></span>
-        <span class="event-heading">LOCATION</span>
-        <p>{{calendarDetail.event.location}}</p>
+            <p>{{calendarDetail.event.eventDate | date:'dd.MM.yyyy hh:mm'}}</p>
 
-        <span class="glyphicon glyphicon-user main-color"></span>
-        <span class="event-heading">ORGANISER</span>
-        <p>{{calendarDetail.event.organiser}}</p>
+            <span class="glyphicon glyphicon-map-marker main-color"></span>
+            <span class="event-heading">LOCATION</span>
 
-        <span class="glyphicon glyphicon-piggy-bank main-color"></span>
-        <span class="event-heading">BOOKABLE HOURS</span>
-        <p>{{calendarDetail.event.bookablehours}}h</p>
+            <p>{{calendarDetail.event.location}}</p>
 
-        <span class="glyphicon glyphicon-ok-circle main-color"></span>
-        <span class="event-heading">PARTICIPANTS ({{calendarDetail.event.participants.length}})</span>
-        <p>{{calendarDetail.event.participants.join(", ")}}</p>
+            <span class="glyphicon glyphicon-user main-color"></span>
+            <span class="event-heading">ORGANISER</span>
 
-        <span class="glyphicon glyphicon-info-sign main-color"></span>
-        <span class="event-heading">DESCRIPTION</span>
-        <p class="event-description" style="white-space: pre-wrap">{{calendarDetail.event.description}}</p>
+            <p>{{calendarDetail.event.organiser}}</p>
 
+            <span class="glyphicon glyphicon-piggy-bank main-color"></span>
+            <span class="event-heading">BOOKABLE HOURS</span>
+
+            <p>{{calendarDetail.event.bookablehours}}h</p>
+
+            <span class="glyphicon glyphicon-ok-circle main-color"></span>
+            <span class="event-heading">PARTICIPANTS ({{calendarDetail.event.participants.length}})</span>
+
+            <p>{{calendarDetail.event.participants.join(", ")}}</p>
+
+            <span class="glyphicon glyphicon-info-sign main-color"></span>
+            <span class="event-heading">DESCRIPTION</span>
+
+            <p class="event-description" style="white-space: pre-wrap">{{calendarDetail.event.description}}</p>
+        </div>
     </div>
 </div>

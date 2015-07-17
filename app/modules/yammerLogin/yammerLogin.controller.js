@@ -42,7 +42,7 @@
                     });
                 }
             });
-        };
+        }
 
         // load user data through REST API, because the login response does not contain the user information.
         function fetchUserData() {
@@ -54,8 +54,8 @@
                     console.dir(user);
                     setCurrentUserInformation(user); // write to model
                 },
-                error: function (user) {
-                    console.warn('YammerLogin: Failed to get user data.');
+                error: function (err) {
+                    console.warn('YammerLogin: Failed to get user data: ' + err);
                     tryLogOut();
                 }
             });
@@ -99,15 +99,15 @@
                                 clearLoginData();
 
                                 $rootScope.$broadcast('YammerUserLogout', []);
-                            })
+                            });
                         }
                         else {
-                            console.warn('Yammer logout failed!')
+                            console.warn('Yammer logout failed!');
                         }
                     }
                 );
             }
-        };
+        }
 
         // queries Yammer and asks whether the user is logged in.
         // NOTE: The 'platform.getLoginStatus' callback only gives us an object with a 'user' field

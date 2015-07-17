@@ -8,8 +8,8 @@
     DataSourceService.$inject = ['$resource', '$http'];
     function DataSourceService($resource, $http) {
 
-        //var backendUrl = 'http://mycommunity.nova.scapp.io';
-        var backendUrl = 'http://localhost:3000';
+        var backendUrl = 'http://mycommunity.nova.scapp.io';
+        //var backendUrl = 'http://localhost:3000';
 
         ////////////
 
@@ -96,11 +96,11 @@
 
         function sendPostRequest(endpoint, postData, callback) {
             $http.post(endpoint, postData)
-                .success(function (data, status, headers, config) {
+                .success(function (data) {
                     console.log('DataSourceService: Posted to ' + endpoint + '\nResponse: ' + JSON.stringify(data));
                     callback(true);
                 })
-                .error(function (data, status, headers, config) {
+                .error(function (data) {
                     var message = 'Registration failed - the backend server did not respond as expected. (data:' + JSON.stringify(data) + ')';
                     console.warn(message);
                     callback(false);

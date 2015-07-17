@@ -7,9 +7,9 @@
         .controller('ContentAdminBaseController', ContentAdminBaseController);
 
     var usersThatCanSeeAllEvents = [
-        "Fabian Schneiter",
-        "Jazz Kang",
-        "Daniela Moser"];
+        'Fabian Schneiter',
+        'Jazz Kang',
+        'Daniela Moser'];
 
     function ContentAdminBaseController($scope, $state, $filter, YammerLoginData, events, news) {
 
@@ -32,17 +32,17 @@
         }
 
         // make sure we move away from our pages on logout
-        $scope.$on('YammerUserLogout', onUserLogout)
+        $scope.$on('YammerUserLogout', onUserLogout);
         function onUserLogout() {
-            console.info('ContentAdminController: onUserLogout, navigate away from admin page.')
+            console.info('ContentAdminController: onUserLogout, navigate away from admin page.');
             if ($state.includes('contentAdmin')) {
                 $state.go('calendar.list');
             }
         }
-    };
+    }
 
     function userCanSeeAllItems(loginData) {
         return (usersThatCanSeeAllEvents.indexOf(loginData.userName) > -1);
-    };
+    }
 
 })();

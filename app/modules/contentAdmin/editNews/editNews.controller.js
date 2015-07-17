@@ -5,7 +5,7 @@
     module.controller('EditNewsController', function ($stateParams, $scope, $state, DataSourceService) {
 
         var newsItemId = $stateParams.id;
-        $scope.isNewItem = newsItemId == '';
+        $scope.isNewItem = newsItemId === '';
 
         if ($scope.isNewItem) {
             // create picture urls to populate dynamic field list in form
@@ -24,7 +24,7 @@
         $scope.submit = function() {
             console.dir($scope.newsItem);
             DataSourceService.updateNewsItem($scope.newsItem, $scope.loginData, onSubmitted);
-        }
+        };
 
         function onSubmitted(success) {
             if (success) $state.go('contentAdmin.overview', {}, { reload: true });

@@ -5,10 +5,10 @@
     module.controller('EditEventController',function ($stateParams, $state, $scope, $filter, DataSourceService) {
 
         var eventId = $stateParams.id;
-        $scope.isNewEvent = eventId == '';
+        $scope.isNewEvent = eventId === '';
 
         if ($scope.isNewEvent) {
-            $scope.event = { organiser: $scope.loginData.userName }
+            $scope.event = { organiser: $scope.loginData.userName };
         } else {
             var eventToBeEdited = $scope.events.filter(function (elem) {
                 return elem.id === eventId;
@@ -29,7 +29,7 @@
             console.log($scope.event.eventDate);
             console.info($scope.event.sexyDate);
             DataSourceService.updateEvent($scope.event, $scope.loginData, onSubmitted);
-        }
+        };
 
         function onSubmitted(success) {
             if (success) $state.go('contentAdmin.overview', {}, { reload: true });
