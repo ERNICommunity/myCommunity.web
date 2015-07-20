@@ -71,7 +71,6 @@
                 size: BootstrapDialog.SIZE_SMALL,
                 closable: true, // <-- Default value is false
                 draggable: true, // <-- Default value is false
-                buttonLabel: 'Roar! Why!', // <-- Default value is 'OK',
                 buttons: [{
                     label: 'Cancel',
                     action: function (dialog) {
