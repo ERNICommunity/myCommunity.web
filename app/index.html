@@ -29,10 +29,19 @@
             </button>
             <a class="navbar-brand" ui-sref="calendar.list" ng-click="navCollapsed = true">myCommunity</a>
         </div>
-        <div class="navbar-collapse collapse" ng-class="{'in' : !navCollapsed}" ng-click="navCollapsed = true">
+        <!-- div collapse="navCollapsed" class="nav-collapse collapse navbar-responsive-collapse" -->
+        <div class="navbar-collapse collapse navbar-responsive-collapse" collapse="navCollapsed && !eventDropdownOpen" ng-click="navCollapsed = true">
+        <!-- div class="navbar-collapse collapse" ng-class="{'in' : !navCollapsed}" ng-click="navCollapsed = true" -->
             <ul class="nav navbar-nav">
-                <li ui-sref-active="active"><a ui-sref="calendar.list">Calendar</a></li>
-                <li ui-sref-active="active"><a ui-sref="news">News</a></li>
+                <li ui-sref-active="active" class="dropdown">
+                    <a ui-sref="calendar.list" class="dropdown-toggle" data-toggle="dropdown" ng-click="eventDropdownOpen = true">Events <b class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a ui-sref="calendar.list" ng-click="eventDropdownOpen = false">Upcoming Events</a></li>
+                        <li><a ui-sref="calendar.list" ng-click="eventDropdownOpen = false">My Calendar</a></li>
+                        <li><a ui-sref="calendar.list" ng-click="eventDropdownOpen = false">Past Events</a></li>
+                    </ul>
+                </li>
+                <li ui-sref-active="active"><a ui-sref="news" ng-click="navCollapsed = true">News</a></li>
             </ul>
             <ul ng-include src="'modules/yammerLogin/yammerLogin.tpl.html'" class="nav navbar-nav navbar-right"></ul>
             <ul ng-include src="'modules/contentAdmin/navButton/adminNavButton.tpl.html'" class="nav navbar-nav navbar-right"></ul>

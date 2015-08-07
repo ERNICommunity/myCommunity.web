@@ -43,7 +43,7 @@ h3 {
     color: #fff;
 }
 
-/*~~~~~~~~~~~~   OVERWRITE BOOTSTRAP STYLES   ~~~~~~~~~~~~~~~~~~*/
+/*~~~~~~~~~~~~   NAVBAR CUSTOMIZATIONS   ~~~~~~~~~~~~~~~~~~*/
 
 .navbar .glyphicon {
     top: 2px;
@@ -57,17 +57,28 @@ h3 {
 }
 
 .navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a:focus,
-{
-    color: #406Ab3;
+.navbar-default .navbar-nav > li > a:focus {
+    background-color: gainsboro;
 }
+
+/* navbar dropdowns on hover
+
+.dropdown-menu li:hover .sub-menu {
+    visibility: visible;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}*/
+
+/* other customizations */
 
 .pager {
     margin: 0px 0px 10px 0px;
     text-align: left;
 }
 
-/*~~~~~~~~~~~~   SMALL DEVICES - SMALLER THAN 768px  ~~~~~~~~~~~~~~~~~~*/
+/* small device padding body padding */
 
 @media (max-width: 768px) {
     body {
