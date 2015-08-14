@@ -13,8 +13,8 @@
                 abstract: true,
                 url: '/calendar',
                 template: '<div ui-view></div>',
-                controller: 'CalendarController',
-                controllerAs: 'calendar',
+                controller: 'CalendarBaseController',
+                controllerAs: 'calendarBase',
                 resolve: {
                     events: ['DataSourceService', function (DataSourceService) {
                         return DataSourceService.getEvents();
@@ -22,11 +22,11 @@
                 }
             })
             .state('calendar.list', {
-                url: '',
-                templateUrl: 'modules/calendar/calendar.tpl.html'
+                url: '/:mode',
+                templateUrl: 'modules/calendar/calendarList.tpl.html'
             })
             .state('calendar.detail', {
-                url: '/:id',
+                url: '/detail/:id',
                 templateUrl: 'modules/calendar/detail/calendar-detail.tpl.html',
                 controller: 'CalendarDetailController',
                 controllerAs: 'calendarDetail'

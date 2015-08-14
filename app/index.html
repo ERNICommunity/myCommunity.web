@@ -27,18 +27,18 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" ui-sref="calendar.list" ng-click="navCollapsed = true">myCommunity</a>
+            <a class="navbar-brand" ui-sref="calendar.list({mode: ''})" ng-click="navCollapsed = true">myCommunity</a>
         </div>
         <!-- div collapse="navCollapsed" class="nav-collapse collapse navbar-responsive-collapse" -->
-        <div class="navbar-collapse collapse navbar-responsive-collapse" collapse="navCollapsed && !eventDropdownOpen" ng-click="navCollapsed = true">
+        <div class="navbar-collapse collapse navbar-responsive-collapse" ng-class="!navCollapsed && 'in'" ng-click="navCollapsed=true" -->
         <!-- div class="navbar-collapse collapse" ng-class="{'in' : !navCollapsed}" ng-click="navCollapsed = true" -->
             <ul class="nav navbar-nav">
-                <li ui-sref-active="active" class="dropdown">
-                    <a ui-sref="calendar.list" class="dropdown-toggle" data-toggle="dropdown" ng-click="eventDropdownOpen = true">Events <b class="caret"></b></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a ui-sref="calendar.list" ng-click="eventDropdownOpen = false">Upcoming Events</a></li>
-                        <li><a ui-sref="calendar.list" ng-click="eventDropdownOpen = false">My Calendar</a></li>
-                        <li><a ui-sref="calendar.list" ng-click="eventDropdownOpen = false">Past Events</a></li>
+                <li ui-sref-active="active" dropdown>
+                    <a dropdown-toggle ng-controller="DummyCtrl">Events <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a ui-sref="calendar.list({mode: ''})">Upcoming Events</a></li>
+                        <!-- li><a ui-sref="calendar.list({mode: 'mine'})" ng-click="eventDropdownOpen = false">My Calendar</a></li -->
+                        <li><a ui-sref="calendar.list({mode: 'past'})">Past Events</a></li>
                     </ul>
                 </li>
                 <li ui-sref-active="active"><a ui-sref="news" ng-click="navCollapsed = true">News</a></li>
@@ -91,7 +91,8 @@
 <script src="modules/dataSource/dataSource.service.js"></script>
 <script src="modules/calendar/calendar.route.js"></script>
 <script src="modules/calendar/detail/calendar-detail.controller.js"></script>
-<script src="modules/calendar/calendar.controller.js"></script>
+<script src="modules/calendar/calendar.baseController.js"></script>
+<script src="modules/calendar/calendarList.controller.js"></script>
 <script src="modules/news/news.route.js"></script>
 <script src="modules/news/news.controller.js"></script>
 <script src="modules/yammerLogin/yammerLogin.controller.js"></script>

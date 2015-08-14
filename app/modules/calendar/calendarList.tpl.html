@@ -1,7 +1,9 @@
-<div class="row search-results">
+<div class="search-results" ng-controller="CalendarListController">
+    <h3>{{ pageTitle }}</h3>
     <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12"
-         ng-repeat="event in calendar.events | orderBy:'eventDate'">
-        <a class="thumbnail" ng-href="#/calendar/{{event.id}}">
+         ng-repeat="event in relevantEvents | orderBy:'eventDate'"
+            style="padding-top: 10px">
+        <a class="thumbnail" ng-href="#/calendar/detail/{{event.id}}">
             <img ng-src="{{event.pictureurl}}" alt="{{event.title}}">
 
             <div class="caption">

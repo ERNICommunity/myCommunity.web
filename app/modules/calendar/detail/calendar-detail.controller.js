@@ -8,6 +8,7 @@
 
     function CalendarDetailController($stateParams, $scope, yammerLoginData, dataSourceService) {
         var vm = this;
+
         vm.event = $scope.events.filter(function (elem) {
             return elem.id === $stateParams.id;
         })[0];

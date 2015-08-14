@@ -3,9 +3,9 @@
 
     angular
         .module('myCommunityApp.calendar')
-        .controller('CalendarController', CalendarController);
+        .controller('CalendarBaseController', CalendarBaseController);
 
-    function CalendarController(events, $scope) {
+    function CalendarBaseController(events, $scope) {
         var vm = this;
         vm.events = events;
         $scope.events = events; // to share across childs

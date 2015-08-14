@@ -1,6 +1,6 @@
 body {
     font-family: 'Source Sans Pro', calibri, sans-serif;
-    padding-top: 80px;
+    padding-top: 60px;
 }
 
 /*~~~~~~~~~~~~   COLOR   ~~~~~~~~~~~~~~~~~~*/
@@ -60,16 +60,6 @@ h3 {
 .navbar-default .navbar-nav > li > a:focus {
     background-color: gainsboro;
 }
-
-/* navbar dropdowns on hover
-
-.dropdown-menu li:hover .sub-menu {
-    visibility: visible;
-}
-
-.dropdown:hover .dropdown-menu {
-    display: block;
-}*/
 
 /* other customizations */
 
