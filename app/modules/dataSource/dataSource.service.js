@@ -14,15 +14,18 @@
         ////////////
 
         function getEvents() {
-            return $resource(backendUrl + '/events', {}).query().$promise.then(function (data) {
-                return data;
-            });
+            return $resource(backendUrl + '/events', {}).query()
+                .$promise.then(
+                function (data) { return data; },
+                function() { return []; } // error handling
+            );
         }
 
         function getEvent(id) {
-            return $resource(backendUrl + '/events', {id: '@id'}).get({id: id}).$promise.then(function (data) {
-                return data;
-            });
+            return $resource(backendUrl + '/events', {id: '@id'}).get({id: id}).$promise.then(
+                function (data) { return data; },
+                function() { return []; } // error handling
+            );
         }
 
         function registerForEvent(eventId, loginData, callback) {
@@ -68,9 +71,10 @@
         }
 
         function getNewsItems() {
-            return $resource(backendUrl + '/news', {}).query().$promise.then(function (data) {
-                return data;
-            });
+            return $resource(backendUrl + '/news', {}).query().$promise.then(
+                function (data) { return data; },
+                function() { return []; } // error handling
+            );
         }
 
         function updateNewsItem(newsItem, loginData, callback) {

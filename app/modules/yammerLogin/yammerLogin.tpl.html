@@ -1,14 +1,18 @@
 <li ng-controller="YammerLoginController" id="yammerLoginView">
-    <a id="loggedInView" ng-show="loginData.isLoggedIn" ng-click="logout()" href=""
+    <a id="loggedInView" ng-show="loginData.isLoggedIn && !loginData.hasProblem" ng-click="logout()" href=""
        style="padding-top: 8px; padding-bottom: 0px">
         <span class="visible-xs-inline"> Log out </span>
         {{loginData.userName}}
         <img ng-src="{{loginData.mugShot}}" class="img-circle" height="40">
     </a>
 
-    <div id="loggedOutView" ng-hide="loginData.isLoggedIn" style="padding-top: 8px">
+    <div id="loggedOutView" ng-hide="loginData.isLoggedIn || loginData.hasProblem" style="padding-top: 8px">
         <button id="loginButton" class="btn btn-primary" ng-click="login()"> Log in.</button>
     </div>
 
-<span id="loginProblem" ng-show="loginData.hasProblem">Login is broken.</span>
+    <div id="loginProblem" ng-show="loginData.hasProblem" style="padding-top: 8px">
+        <button id="loginUnavailable" class="btn btn-alert" disabled>
+            <span class="glyphicon glyphicon-ban-circle"/> Login unavailable.
+        </button>
+    </div>
 </li>

@@ -45,10 +45,6 @@ h3 {
 
 /*~~~~~~~~~~~~   NAVBAR CUSTOMIZATIONS   ~~~~~~~~~~~~~~~~~~*/
 
-.navbar .glyphicon {
-    top: 2px;
-}
-
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
@@ -61,11 +57,9 @@ h3 {
     background-color: gainsboro;
 }
 
-/* other customizations */
-
-.pager {
-    margin: 0px 0px 10px 0px;
-    text-align: left;
+.navbar-brand > img
+{
+    display: inline; /* WTF Bootstrap.navbar-brand?! */
 }
 
 /* small device padding body padding */

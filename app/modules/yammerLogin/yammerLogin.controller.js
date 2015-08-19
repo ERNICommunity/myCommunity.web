@@ -113,21 +113,26 @@
         // IF this is the FIRST API call of the session. After 'platform.login' is called, we won't get
         // that information anymore, and this method will crash trying to access it.
         function checkLoginStatus() {
-            console.info('YammerLogin: Refreshing login status.');
-            yam.platform.getLoginStatus(function (response) {
+            try
+            {
+                console.info('YammerLogin: Refreshing login status.');
+                yam.platform.getLoginStatus(function (response) {
                 console.log('YammerLogin: Login status received.');
-                console.dir(response);
-                if (response.authResponse) {
-                    if (response.user) {
-                        $scope.loginData.token = response.access_token.token;
-                        setCurrentUserInformation(response.user);
+                    console.dir(response);
+                    if (response.authResponse) {
+                        if (response.user) {
+                            $scope.loginData.token = response.access_token.token;
+                            setCurrentUserInformation(response.user);
+                        }
+                        else {
+                            console.warn('YammerLogin: Logged in, but no user information.');
+                        }
                     }
-                    else {
-                        console.warn('YammerLogin: Logged in, but no user information.');
-                    }
-                }
-                else clearLoginData();
-            });
+                    else clearLoginData();
+                });
+            } catch (e) {
+                $scope.loginData.hasProblem = true;
+            }
         }
 
         function setCurrentUserInformation(userJson) {

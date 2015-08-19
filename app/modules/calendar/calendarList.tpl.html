@@ -1,18 +1,23 @@
 <div class="search-results" ng-controller="CalendarListController">
-    <h3>{{ pageTitle }}</h3>
-    <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12"
-         ng-repeat="event in relevantEvents | orderBy:'eventDate'"
-            style="padding-top: 10px">
-        <a class="thumbnail" ng-href="#/calendar/detail/{{event.id}}">
-            <img ng-src="{{event.pictureurl}}" alt="{{event.title}}">
-
-            <div class="caption">
-                <h3>{{event.title}}</h3>
-
-                <!-- FIXME: when rest endpoint provide proper dates -->
-                <span class="glyphicon glyphicon-calendar"></span> {{ event.eventDate | date:'dd.MM.yyyy at HH:mm'}}
-
-            </div>
-        </a>
+    <div class="row">
+        <h3>{{ pageTitle }}</h3>
     </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12"
+             ng-repeat="event in relevantEvents | orderBy:'eventDate'"
+             style="padding-top: 10px">
+            <a class="thumbnail" ng-href="#/calendar/detail/{{event.id}}">
+                <img ng-src="{{event.pictureurl}}" alt="{{event.title}}">
+
+                <div class="caption">
+                    <h3>{{event.title}}</h3>
+
+                    <!-- FIXME: when rest endpoint provide proper dates -->
+                    <span class="glyphicon glyphicon-calendar"></span> {{ event.eventDate | date:'dd.MM.yyyy at HH:mm'}}
+
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
 </div>
